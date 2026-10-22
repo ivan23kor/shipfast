@@ -16,10 +16,10 @@ const TestimonialSingle = () => {
 
               {/* Testimonial Text */}
               <p className="text-2xl md:text-3xl font-medium mb-8 text-base-content/90">
-                "ShipFast helped me launch my SaaS in just 5 days. The code is
-                clean, well-documented, and includes everything I needed. I've
-                already made back my investment and I'm now building my second
-                product with it."
+                &quot;ShipFast helped me launch my SaaS in just 5 days. The code is
+                clean, well-documented, and includes everything I needed. I&apos;ve
+                already made back my investment and I&apos;m now building my second
+                product with it.&quot;
               </p>
 
               {/* Author */}

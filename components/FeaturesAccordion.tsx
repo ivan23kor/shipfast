@@ -83,7 +83,7 @@ const FeaturesAccordion = () => {
               Powerful Features, Simple Setup
             </h2>
             <p className="text-xl text-base-content/70">
-              Explore what's included in the boilerplate
+              Explore what&apos;s included in the boilerplate
             </p>
           </div>
 

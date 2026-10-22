@@ -25,18 +25,21 @@ interface ContactFormSchema {
 }
 
 // Validation functions
-function validateCreateUser(data: any): { valid: boolean; errors: string[]; sanitized?: CreateUserSchema } {
+function validateCreateUser(data: Record<string, unknown>): { valid: boolean; errors: string[]; sanitized?: CreateUserSchema } {
   const errors: string[] = [];
+  const email = typeof data.email === 'string' ? data.email : '';
+  const name = typeof data.name === 'string' ? data.name : '';
+  const website = typeof data.website === 'string' ? data.website : undefined;
 
-  if (!data.email || !isValidEmail(data.email)) {
+  if (!email || !isValidEmail(email)) {
     errors.push('Invalid email address');
   }
 
-  if (!data.name || data.name.length < 2) {
+  if (name.length < 2) {
     errors.push('Name must be at least 2 characters');
   }
 
-  if (data.website && !isValidUrl(data.website)) {
+  if ((data.website !== undefined && typeof data.website !== 'string') || (website && !isValidUrl(website))) {
     errors.push('Invalid website URL');
   }
 
@@ -48,29 +51,32 @@ function validateCreateUser(data: any): { valid: boolean; errors: string[]; sani
     valid: true,
     errors: [],
     sanitized: {
-      email: sanitizeEmail(data.email),
-      name: sanitizeInput(data.name),
-      website: data.website ? sanitizeInput(data.website) : undefined,
+      email: sanitizeEmail(email),
+      name: sanitizeInput(name),
+      website: website ? sanitizeInput(website) : undefined,
     },
   };
 }
 
-function validateContactForm(data: any): { valid: boolean; errors: string[]; sanitized?: ContactFormSchema } {
+function validateContactForm(data: Record<string, unknown>): { valid: boolean; errors: string[]; sanitized?: ContactFormSchema } {
   const errors: string[] = [];
+  const email = typeof data.email === 'string' ? data.email : '';
+  const subject = typeof data.subject === 'string' ? data.subject : '';
+  const message = typeof data.message === 'string' ? data.message : '';
 
-  if (!data.email || !isValidEmail(data.email)) {
+  if (!email || !isValidEmail(email)) {
     errors.push('Invalid email address');
   }
 
-  if (!data.subject || data.subject.length < 3) {
+  if (subject.length < 3) {
     errors.push('Subject must be at least 3 characters');
   }
 
-  if (!data.message || data.message.length < 10) {
+  if (message.length < 10) {
     errors.push('Message must be at least 10 characters');
   }
 
-  if (data.message && data.message.length > 1000) {
+  if (message.length > 1000) {
     errors.push('Message must be less than 1000 characters');
   }
 
@@ -82,9 +88,9 @@ function validateContactForm(data: any): { valid: boolean; errors: string[]; san
     valid: true,
     errors: [],
     sanitized: {
-      email: sanitizeEmail(data.email),
-      subject: sanitizeInput(data.subject),
-      message: sanitizeInput(data.message),
+      email: sanitizeEmail(email),
+      subject: sanitizeInput(subject),
+      message: sanitizeInput(message),
     },
   };
 }
@@ -102,6 +108,9 @@ export async function POST(request: NextRequest) {
 
     // Parse request body
     const body = await request.json();
+    if (body === null || typeof body !== 'object' || Array.isArray(body)) {
+      return securityErrorResponse('Invalid request body', 400);
+    }
 
     // Determine validation based on endpoint or body type
     const validationType = body.type || 'user';

@@ -60,7 +60,7 @@ const TestimonialTriple = () => {
 
                   {/* Text */}
                   <p className="text-base-content/80 mb-6">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </p>
 
                   {/* Author */}

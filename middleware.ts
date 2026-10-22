@@ -20,7 +20,7 @@ const rateLimiter = new Ratelimit({
 
 export async function middleware(request: NextRequest) {
   // Get IP address
-  const ip = request.ip ?? request.headers.get('x-forwarded-for') ?? 'unknown';
+  const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
 
   // Check if route should be rate limited
   const path = request.nextUrl.pathname;

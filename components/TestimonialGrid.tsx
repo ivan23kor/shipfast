@@ -54,7 +54,7 @@ const TestimonialGrid = () => {
               Join 1,000+ Happy Developers
             </h2>
             <p className="text-xl text-base-content/70">
-              Here's what they're saying about ShipFast
+              Here&apos;s what they&apos;re saying about ShipFast
             </p>
           </div>
 
@@ -78,7 +78,7 @@ const TestimonialGrid = () => {
 
                   {/* Text */}
                   <p className="text-base-content/80 text-sm mb-4">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </p>
 
                   {/* Author */}

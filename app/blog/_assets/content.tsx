@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import type { ReactElement } from "react";
 
 export interface Author {
   name: string;
@@ -26,7 +27,7 @@ export interface Article {
     urlRelative: string;
     alt: string;
   };
-  content: JSX.Element;
+  content: ReactElement;
 }
 
 // Authors
@@ -89,10 +90,10 @@ export const articles: Article[] = [
           even start working on your core features.
         </p>
         <p>
-          That's why we built ShipFast - a NextJS boilerplate that includes
+          That&apos;s why we built ShipFast - a NextJS boilerplate that includes
           everything you need to launch your startup quickly.
         </p>
-        <h2>What's Included?</h2>
+        <h2>What&apos;s Included?</h2>
         <ul>
           <li>Complete authentication system with Google OAuth</li>
           <li>Stripe integration for payments and subscriptions</li>
@@ -128,12 +129,12 @@ export const articles: Article[] = [
       <>
         <p>
           SEO is crucial for SaaS products. Without it, potential customers
-          won't find your product when searching for solutions.
+          won&apos;t find your product when searching for solutions.
         </p>
         <h2>Key SEO Strategies</h2>
         <h3>1. Optimize Your Content</h3>
         <p>
-          Create valuable content that answers your target audience's
+          Create valuable content that answers your target audience&apos;s
           questions. Use relevant keywords naturally throughout your content.
         </p>
         <h3>2. Build Quality Backlinks</h3>
@@ -174,7 +175,7 @@ export const articles: Article[] = [
       <>
         <p>
           Accepting payments is essential for any SaaS business. Stripe makes
-          it easy, and with ShipFast, it's already integrated.
+          it easy, and with ShipFast, it&apos;s already integrated.
         </p>
         <h2>Setting Up Stripe</h2>
         <ol>

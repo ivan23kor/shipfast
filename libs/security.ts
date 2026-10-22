@@ -1,5 +1,5 @@
 import { Redis } from '@upstash/redis';
-import { Ratelimit } from '@upstash/ratelimit';
+import { Ratelimit, type Duration } from '@upstash/ratelimit';
 
 // Security headers configuration
 export const securityHeaders = {
@@ -30,7 +30,7 @@ export function generateCSPHeader(): string {
 }
 
 // Rate limiter factory
-export function createRateLimiter(requests: number, window: string) {
+export function createRateLimiter(requests: number, window: Duration) {
   const redis = new Redis({
     url: process.env.UPSTASH_REDIS_REST_URL!,
     token: process.env.UPSTASH_REDIS_REST_TOKEN!,

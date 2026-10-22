@@ -81,7 +81,7 @@ export default function ButtonSupport({
 // Type declaration for Crisp
 declare global {
   interface Window {
-    $crisp: any[];
+    $crisp: Array<[string, ...unknown[]]>;
     CRISP_WEBSITE_ID: string;
   }
 }

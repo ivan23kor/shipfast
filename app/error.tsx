@@ -52,7 +52,7 @@ export default function Error({ error, reset }: ErrorPageProps) {
               <h2 className="card-title text-2xl mb-4">Server Error</h2>
 
               <p className="text-base-content/70 mb-6">
-                Something went wrong on our end. We've been notified and are
+                Something went wrong on our end. We&apos;ve been notified and are
                 working to fix it.
               </p>
 

@@ -205,7 +205,14 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
   console.log("Invoice payment succeeded:", invoice.id);
 
   const customerId = invoice.customer as string;
-  const subscriptionId = invoice.subscription as string;
+  const subscription = 'subscription' in invoice
+    ? invoice.subscription
+    : invoice.parent?.subscription_details?.subscription;
+  const subscriptionId = typeof subscription === 'string'
+    ? subscription
+    : subscription && typeof subscription === 'object' && 'id' in subscription
+      ? subscription.id
+      : undefined;
 
   // TODO: Record payment in database
   // Example:

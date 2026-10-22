@@ -3,13 +3,14 @@ import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/libs/mongo";
+import type { Adapter } from "next-auth/adapters";
 import { Resend } from "resend";
 import config from "@/config";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const authOptions: NextAuthOptions = {
-  adapter: MongoDBAdapter(clientPromise) as any,
+  adapter: MongoDBAdapter(clientPromise) as unknown as Adapter,
 
   providers: [
     GoogleProvider({

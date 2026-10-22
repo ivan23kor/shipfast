@@ -104,7 +104,7 @@ export default class ErrorBoundary extends Component<
 
               <p className="text-base-content/70 mb-4">
                 We encountered an unexpected error. This has been logged and
-                we'll look into it.
+                we&apos;ll look into it.
               </p>
 
               {process.env.NODE_ENV === "development" && this.state.error && (

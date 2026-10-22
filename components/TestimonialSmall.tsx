@@ -42,7 +42,7 @@ const TestimonialSmall = () => {
                     </div>
                   </div>
                   <p className="text-base-content/80 text-sm">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </p>
                 </div>
               </div>

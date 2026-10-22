@@ -170,7 +170,7 @@ export function MagicLinkEmail({
               lineHeight: 1.5,
             }}
           >
-            If you didn't request this email, you can safely ignore it.
+            If you didn&apos;t request this email, you can safely ignore it.
           </p>
         </td>
       </tr>
@@ -225,7 +225,7 @@ export function VerificationEmail({
               lineHeight: 1.5,
             }}
           >
-            If you didn't create an account, you can safely ignore this email.
+            If you didn&apos;t create an account, you can safely ignore this email.
           </p>
         </td>
       </tr>
@@ -272,7 +272,7 @@ export function WelcomeEmail({
               lineHeight: 1.5,
             }}
           >
-            Welcome to {appName}! We're excited to have you on board.
+            Welcome to {appName}! We&apos;re excited to have you on board.
           </p>
           <p
             style={{
@@ -352,7 +352,7 @@ export function PasswordResetEmail({
               lineHeight: 1.5,
             }}
           >
-            If you didn't request a password reset, you can safely ignore this
+            If you didn&apos;t request a password reset, you can safely ignore this
             email. Your password will remain unchanged.
           </p>
         </td>

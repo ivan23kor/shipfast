@@ -32,7 +32,7 @@ const Problem = () => {
               Stop Wasting Time on Boilerplate
             </h2>
             <p className="text-xl text-base-content/70">
-              Building a SaaS from scratch is painful. We've been there.
+              Building a SaaS from scratch is painful. We&apos;ve been there.
             </p>
           </div>
 
